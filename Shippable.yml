@@ -1,9 +1,7 @@
-## YAML Template.
----
 language: java
 jdk: oraclejdk8
-after_success:
-  - mvn assembly:single
-  - mvn clean cobertura:cobertura
-  - mvn test
-  - java -jar C:\Users\User\Documents\NetBeansProjects\CT417_studentRegistrationSystem\target\CT417_studentRegistrationSystem-1.0-SNAPSHOT.jar
+after_success: mvn clean test
+notifications:
+  email:
+      recipients:
+        - s.cuddihy1@nuigalway.ie

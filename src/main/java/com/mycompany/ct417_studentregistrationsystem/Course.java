@@ -27,7 +27,7 @@ public class Course {
 	}
         
         public String toString() {
-                return "Coursename: " + CourseCode + " Title: " + CourseTitle;
+                return "COURSECODE: " + CourseCode + "\nCOURSE TITLE: " + CourseTitle;
         }
         
         public void setTitle(String title) {

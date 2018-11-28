@@ -22,7 +22,7 @@ public class Module {
 	}
         
         public String toString() {
-                return "Module Code: " + this.ModuleID + " Title: " + this.ModuleName;
+                return "\nMODULE CODE: " + this.ModuleID + "  MODULE TITLE: " + this.ModuleName;
         }
 
 	public String getModuleName() {
@@ -44,10 +44,6 @@ public class Module {
 	public ArrayList<Student> getStudents() {
 		return this.Students;
 	}
-
-//	public void addStudents(ArrayList<Student> students) {
-//		this.Students.addAll(students);
-//	}
 
 }
 

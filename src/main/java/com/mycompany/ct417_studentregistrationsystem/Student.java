@@ -29,7 +29,7 @@ public class Student {
 	}
         
         public String toString() {
-                return "Name: " + Name + " ID: " + ID + " Username: " + this.getUsername();
+                return "NAME: " + Name + "\nID: " + ID + "\nUSERNAME: " + this.getUsername();
         }
         
         public void setName(String n) {
@@ -61,16 +61,12 @@ public class Student {
 	}
 
 	public String getUsername() {
-		return Name.replaceAll("\\s","") + Age + "@nuigalway.ie";
+		return Name.replaceAll("\\s","") + Age + "@NUIGALWAY.IE";
 	}
 
 	public String getStudent() {
 		return this.Name + this.DOB + this.ID;
 	}
-
-//	public void addStudentocourse(Course course) {
-//		this.Course = course;
-//	};
         
         public void setCourse(Course course) {
                 this.Course = course;
@@ -88,16 +84,5 @@ public class Student {
                 return Modules;
         }
         
-//	public ArrayList<Module> getModules(ArrayList<Module> modules) {
-//		ArrayList<Module> studentsModules = new ArrayList<Module>();
-//		for (int i = 0; i < modules.size(); i++) {
-//			Module module = modules.get(i);
-//
-//			if (module.getStudents().contains(this)) {
-//				studentsModules.add(module);
-//			}
-//		}
-//		return studentsModules;
-//	}
 }
 

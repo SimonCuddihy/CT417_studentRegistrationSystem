@@ -10,15 +10,20 @@ import java.util.ArrayList;
 
 public class Module {
 
-	private String ModuleName;
-	private String ModuleID;
-	private ArrayList<Student> Students = new ArrayList<Student>();
+	private String ModuleName,ModuleID;
+	private static int nextModID = 417;
+	private ArrayList Students;
 
-	public Module(String module, String id, ArrayList<Student> students) {
+	public Module(String module) {
 		this.ModuleName = module;
-		this.ModuleID = id;
-		this.Students = students;
+		this.ModuleID = "CT" + nextModID;
+		this.Students = new ArrayList();
+                nextModID++;
 	}
+        
+        public String toString() {
+                return "Module Code: " + this.ModuleID + " Title: " + this.ModuleName;
+        }
 
 	public String getModuleName() {
 		return this.ModuleName;
@@ -27,14 +32,22 @@ public class Module {
 	public String getModuleId() {
 		return this.ModuleID;
 	}
+        
+        public void addStudent(Student s) {
+                Students.add(s);
+        }
 
+        public void setStudents(ArrayList<Student> s) {
+                this.Students = s;
+        }
+        
 	public ArrayList<Student> getStudents() {
 		return this.Students;
 	}
 
-	public void addStudents(ArrayList<Student> students) {
-		this.Students.addAll(students);
-	}
+//	public void addStudents(ArrayList<Student> students) {
+//		this.Students.addAll(students);
+//	}
 
 }
 

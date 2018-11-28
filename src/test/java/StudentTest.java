@@ -39,8 +39,12 @@ public class StudentTest {
     @Test
     public void testGetUsername() {
         DateTime DOB = new DateTime(1993, 11, 10, 0,0,0);
-        Student student = new Student("Simon Cuddihy", 24, DOB, 12456772);
-        assertEquals("Simon Cuddihy24", student.getUsername());
+        Student student = new Student("Simon Cuddihy", 24, DOB);
+        
+        String expected = "SimonCuddihy24@nuigalway.ie";
+        String result = student.getUsername();
+        assertEquals(expected, result);
+        //assertEquals("Simon Cuddihy24", student.getUsername());
         
     }
 }

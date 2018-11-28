@@ -11,49 +11,87 @@ import org.joda.time.*;
 
 public class Course {
 
-	private String CourseName;
-	private ArrayList<Module> Modules = new ArrayList<Module>();
+	private String CourseTitle, CourseCode;
+	private ArrayList Modules; 
+        private ArrayList<Student> Students;
 	private DateTime StartDate;
 	private DateTime EndDate;
 
-	public Course(String course, ArrayList<Module> module, DateTime start, DateTime end) {
-		this.CourseName = course;
-		this.Modules = module;
+	public Course(String title, String course, DateTime start, DateTime end) {
+                this.CourseTitle = title;
+                this.CourseCode = course;
 		this.StartDate = start;
 		this.EndDate = end;
+                Modules = new ArrayList();
+                Students = new ArrayList<Student>();
 	}
+        
+        public String toString() {
+                return "Coursename: " + CourseCode + " Title: " + CourseTitle;
+        }
+        
+        public void setTitle(String title) {
+                this.CourseTitle = title;
+        }
+        
+        public String getTitle() {
+                return CourseTitle;
+        }
 
 	public String getCourseName() {
-		return this.CourseName;
+		return CourseCode;
 	}
 
 	public void setCourseName(String course) {
-		this.CourseName = course;
+		this.CourseCode = course;
 	}
-
-	public ArrayList<Module> getModules() {
-		return this.Modules;
-	}
-
-	public void setModules(ArrayList<Module> modules) {
+        
+        public void addModule(Module m){
+                Modules.add(m);
+        }
+        
+        public void setModules(ArrayList modules) {
 		this.Modules = modules;
 	}
 
-	public DateTime getStartDate() {
-		return this.StartDate;
+	public ArrayList getModules() {
+		return Modules;
 	}
 
-	public DateTime getEndDate() {
-		return this.EndDate;
-	}
-
-	public void setStartDate(DateTime start) {
+        public void setStartDate(DateTime start) {
 		this.StartDate = start;
 	}
 
 	public void setEndDate(DateTime end) {
 		this.EndDate = end;
 	}
+
+        
+	public DateTime getStartDate() {
+		return StartDate;
+	}
+
+	public DateTime getEndDate() {
+		return EndDate;
+	}
+        
+        public void registerStudent(Student s) {
+                Students.add(s);
+                s.setCourse(this);
+                s.setModules(Modules);
+
+                for(Module m : s.getModules()) {
+                    m.addStudent(s);
+                }
+        }
+        
+        public void setStudents(ArrayList<Student> students) {
+                this.Students = students;
+        }
+        
+        public ArrayList<Student> getStudents() {
+                return Students;
+        }
 
 }
 
